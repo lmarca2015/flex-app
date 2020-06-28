@@ -1,0 +1,71 @@
+.mat-column-userimage {
+  flex: 0 0 28% !important;
+  width: 10% !important;
+}
+
+.mat-column-title {
+  width: 20% !important;
+}
+
+.mat-column-release_date {
+  width: 10% !important;
+}
+
+.mat-column-position {
+  width: 10% !important;
+}
+
+.mat-column-overview {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 50% !important;
+}
+
+img {
+  border-radius: 50%;
+}
+
+.mat-row:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+
+/* .mat-table .mat-row:hover {
+    background: rgba(255, 255, 255, 0.04);
+} */
+
+
+/* <div fxLayout="row wrap" fxLayoutGap="25px" style="margin-right:-25px;">
+  <mat-form-field fxFlex.xs="calc(50%-25px)" fxFlex="calc(33%-25px)">
+    <input matInput placeholder="Name"> */
+
+mat-form-field {
+  font-size: 16px;
+  width: 300px;
+}
+
+/* Absolute Center Spinner */
+.loading-indicator {
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 2em;
+  overflow: show;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+/* Transparent Overlay */
+.loading-indicator:before {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.2);
+}

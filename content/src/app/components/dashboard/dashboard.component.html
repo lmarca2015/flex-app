@@ -1,0 +1,41 @@
+<div class="app-container fixed-sidebar fixed-header">
+  <div class="app-header">
+    <div class="app-header__content">
+      <mat-toolbar color="primary" class="mat-elevation-z6">
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>My App</span>
+        <span class="example-spacer"></span>
+        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+          <mat-icon>color_lens</mat-icon>
+        </button>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+          <mat-icon>account_circle</mat-icon>
+        </button>
+      </mat-toolbar>
+    </div>
+  </div>
+  <div class="app-main">
+    <div class="app-sidebar">
+      <app-menu></app-menu>
+    </div>
+    <div class="app-main__outer">
+      <div class="app-main__inner" style="border-color: black;border-style: solid;">
+        <router-outlet></router-outlet>
+      </div>
+      <div class="fixed-footer">
+        <div class="app-footer">
+          <div class="app-footer__inner">
+            <mat-toolbar color="primary">
+              <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+                <mat-icon>menu</mat-icon>
+              </button>
+              <span>My Footer</span>
+            </mat-toolbar>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

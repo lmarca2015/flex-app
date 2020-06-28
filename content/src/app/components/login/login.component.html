@@ -1,0 +1,98 @@
+<section class="login-form">
+  <div fxLayoutAlign="center center" fxFlexFill>
+    <mat-card style="width: 350px;">
+
+      <mat-card-content>
+        <mat-toolbar>Login</mat-toolbar>
+        <p></p>
+        <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit(loginForm.value)" fxLayout="column"
+          fxLayoutAlign="stretch">
+
+          <mat-card>
+            <mat-card-content>
+              <mat-horizontal-stepper labelPosition="bottom" #stepper>
+                <mat-step [stepControl]="firstFormGroup">
+                  <form [formGroup]="firstFormGroup">
+                    <ng-template matStepLabel>Usuario</ng-template>
+                    <mat-form-field>
+                      <mat-label>Usuario</mat-label>
+                      <input matInput formControlName="firstCtrl" autocomplete="false" required>
+                    </mat-form-field>
+                    <div>
+                      <button mat-button matStepperNext>Next</button>
+                    </div>
+                  </form>
+                </mat-step>
+                <mat-step [stepControl]="secondFormGroup">
+                  <form [formGroup]="secondFormGroup">
+                    <ng-template matStepLabel>Clave</ng-template>
+                    <mat-form-field>
+                      <mat-label>Clave</mat-label>
+                      <input formControlName="secondCtrl" matInput [type]="hide ? 'password' : 'text'" autocomplete="false" required>
+                      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                        [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                      </button>
+                    </mat-form-field>
+                    <div>
+                      <button mat-button matStepperPrevious>Back</button>
+                      <button mat-button (click)="onLoad();">Reset</button>
+                    </div>
+                  </form>
+                </mat-step>
+              </mat-horizontal-stepper>
+            </mat-card-content>
+          </mat-card>
+          <mat-card style="margin-top: 15px;" class="mat-elevation-z2">
+            <div fxLayout="column" fxLayoutAlign="space-between center">
+              <button mat-raised-button class="fa fa-google">Acceder con Google</button>
+              <button mat-raised-button class="fa fa-facebook" [style.margin-top]="'12px'">Acceder con Facebook</button>
+            </div>
+          </mat-card>
+
+
+          <!-- <mat-form-field appearance="fill">
+            <mat-label>Enter your Email</mat-label>
+            <input formControlName="username" matInput placeholder="Placeholder">
+            <mat-icon matSuffix>email</mat-icon>
+          </mat-form-field>
+          <mat-error>
+            <span *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched">Please enter
+              username</span>
+          </mat-error>
+          <p></p>
+          <mat-form-field appearance="fill">
+            <mat-label>Enter your password</mat-label>
+            <input formControlName="password" matInput [type]="hide ? 'password' : 'text'">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+          </mat-form-field>
+          <mat-error>
+            <span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">Please enter
+              password</span>
+          </mat-error>
+
+          <button mat-raised-button color="accent" [disabled]="!loginForm.valid">Login</button> -->
+      
+        </form>
+        <p></p>
+        <div fxLayout="row" fxLayoutAlign="space-evenly center" *ngIf=false>
+            <button mat-fab color="primary" aria-label="Example icon button with a delete icon">
+                <mat-icon>alarm</mat-icon>
+              </button>
+              <button mat-fab color="warn" aria-label="Example icon button with a home icon" (click)="signinWithGoogle()">
+                <mat-icon>plus_one</mat-icon>
+              </button>
+        </div>
+      </mat-card-content>
+
+    </mat-card>
+  </div>
+</section>
+
+
+<div *ngIf=showIn fxLayout="column" fxLayoutAlign="center center" fxFill class="loading-indicator">
+  <mat-spinner></mat-spinner>
+</div>

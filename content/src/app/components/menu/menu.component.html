@@ -1,0 +1,94 @@
+
+<mat-progress-bar *ngIf=false mode="indeterminate" value=60 style="width: 100% !important; padding-top: 20px; margin-bottom: 10px;"></mat-progress-bar>
+
+<div class="menu-container" style="margin-left: 8px;">
+
+  <mat-card *ngIf="true" class="example-card" style="margin-bottom: 15px; margin-top: 25px;" >
+    <mat-card-header fxLayout="column" fxLayoutAlign="space-between center">
+      <div mat-card-avatar class="example-header-image" style="margin-bottom: 15px;"></div>
+      <h2>luisfmz26@gmail.com</h2>  
+      <!-- <mat-card-title>lmarca@izipay.pe</mat-card-title> -->
+    </mat-card-header>
+    <mat-card-content>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+          <mat-icon [style.margin-right]="'12px'">chrome_reader_mode</mat-icon>
+          <mat-panel-title>
+            Noticias
+          </mat-panel-title>
+        </div>
+      </mat-expansion-panel-header>
+
+      <div fxLayout="column" fxLayoutAlign="space-between start">
+      </div>
+
+    </mat-expansion-panel>
+
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <div fxLayout="row" fxLayoutAlign="space-between center">
+            <mat-icon [style.margin-right]="'12px'">movie_creation</mat-icon>
+            <mat-panel-title>
+              Películas
+            </mat-panel-title>
+        </div>
+      </mat-expansion-panel-header>
+
+      <mat-list role="list">
+
+        <mat-list-item [routerLink]="['/login']" [routerLinkActive]="['active']">
+            <mat-icon matListIcon>home</mat-icon>
+            <a matLine>Formulario</a>
+        </mat-list-item>
+
+        <mat-list-item [routerLink]="['/movies']" [routerLinkActive]="['active']">
+            <mat-icon matListIcon>home</mat-icon>
+            <a matLine>Películas</a>
+        </mat-list-item>
+
+        <mat-list-item [routerLink]="['/form']" [routerLinkActive]="['active']">
+            <mat-icon matListIcon>home</mat-icon>
+            <a matLine>Listado</a>
+        </mat-list-item>
+        
+      </mat-list>
+
+    </mat-expansion-panel>
+
+    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <div fxLayout="row" fxLayoutAlign="space-between center">
+              <mat-icon [style.margin-right]="'12px'">group_work</mat-icon>
+              <mat-panel-title>
+                Categorías
+              </mat-panel-title>
+          </div>
+        </mat-expansion-panel-header>
+
+        <mat-selection-list #shoes [multiple]="false">
+          <mat-list-option *ngFor="let shoe of typesOfShoes">
+            {{shoe}}
+          </mat-list-option>
+        </mat-selection-list>
+
+      </mat-expansion-panel>
+
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <div fxLayout="row" fxLayoutAlign="space-between center">
+              <mat-icon [style.margin-right]="'12px'">people_alt</mat-icon>
+              <mat-panel-title>
+                Usuarios
+              </mat-panel-title>
+          </div>
+        </mat-expansion-panel-header>
+        <p>I'm visible because I am open</p>
+      </mat-expansion-panel>
+
+  </mat-accordion>
+</div>

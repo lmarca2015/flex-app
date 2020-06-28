@@ -1,0 +1,65 @@
+<!-- <div *ngIf="data;else other_content"></div> -->
+<article [class.content]="!deviceXs" [class.content-mob]="deviceXs" (scroll)="onScroll($event)">
+  <mat-toolbar>
+    <button *ngIf="deviceXs" type="button" mat-icon-button (click)="drawer.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    Component
+  </mat-toolbar>
+
+  <mat-drawer-container class="example-container">
+    <mat-drawer #drawer [mode]="deviceXs?'over':'side'" [opened]="deviceXs?false:true" position="start" fxFlex="20"
+      fxLayout="column" fxLayoutAlign="start space-between" [style.marginTop.px]="10" [style.top.px]="sideBarScroll()">
+      <mat-list role="list" class="list-width" *ngFor="let i of [].constructor(10)">
+        <mat-list-item role="listitem" class="list-item" matRipple>Side Bar Item List</mat-list-item>
+      </mat-list>
+    </mat-drawer>
+    <!-- <p>Test</p> -->
+    <mat-drawer-content>
+
+      <div *ngIf="movies.length == 0" fxLayoutAlign="center center">
+        <mat-spinner></mat-spinner>
+      </div>
+
+      <div class="example-sidenav-content" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-evenly center">
+        <mat-card *ngFor="let movie of movies" class="example-card mat-elevation-z2" (click)="openDialog(movie)">
+          <mat-card-header>
+            <div mat-card-avatar class="example-header-image" fxLayoutAlign.xs="center center"></div>
+            <mat-card-title>{{movie.title}}</mat-card-title>
+            <mat-card-subtitle>Fecha{{ movie.release_date }}</mat-card-subtitle>
+          </mat-card-header>
+          <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+              alt={{movie.title}}> -->
+
+          <img mat-card-image [src]="(imgPath + movie.poster_path)" alt={{movie.title}}>
+
+          <mat-card-content>
+            <p>
+              <!-- {{ movie.overview }} -->
+              {{movie.overview  | slice:0:250}}...
+            </p>
+          </mat-card-content>
+          <mat-card-actions fxLayoutAlign="space-evenly center">
+            <button mat-button>LIKE</button>
+            <button mat-button>SHARE</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+
+      <div>
+
+        <mat-paginator [length]="totalMovies" [pageSize]="moviesPerPage" [pageSizeOptions]="pageSizeOptions"
+          [showFirstLastButtons]="false" (page)="onChangedPage($event)">
+        </mat-paginator>
+
+        <div *ngIf="pageEvent">
+          <h5>Page Change Event Properties</h5>
+          <div>List length: {{pageEvent.length}}</div>
+          <div>Page size: {{pageEvent.pageSize}}</div>
+          <div>Page index: {{pageEvent.pageIndex}}</div>
+        </div>
+      </div>
+
+    </mat-drawer-content>
+  </mat-drawer-container>
+</article>

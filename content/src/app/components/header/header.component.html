@@ -1,0 +1,25 @@
+<p *ngIf="deviceXs">header works!</p>
+
+<mat-toolbar class="mat-elevation-z4">  
+    <mat-toolbar-row fxLayoutAlign="space-between center">
+      
+      <div>
+        <button mat-button >
+            <mat-icon>home</mat-icon>
+            <span class="logo">First Row</span>
+        </button>
+        <button mat-button (click)="openDialog()">Accent</button>
+        <button mat-button>Warn</button>
+      </div>
+      <div>
+          <button mat-icon-button>
+              <mat-icon *ngIf="deviceXs">more_vert</mat-icon>
+              <span *ngIf="!deviceXs">Menu</span>
+          </button>
+      </div>
+    </mat-toolbar-row>
+  
+    <!-- <mat-toolbar-row *ngIf="deviceXs">
+      <span>Second Row</span>
+    </mat-toolbar-row> -->
+</mat-toolbar>

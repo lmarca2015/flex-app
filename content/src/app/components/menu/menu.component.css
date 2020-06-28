@@ -1,0 +1,6 @@
+.example-header-image {
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRoAy_O5GgWzQjKlwql9mcDYl3eVWTA7gY3JQ&usqp=CAU');
+  height: 100px;
+  width: 100px;
+  background-size: cover;
+}

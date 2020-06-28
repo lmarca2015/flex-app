@@ -1,0 +1,7 @@
+{
+    "/api/*":{
+        "target": "https://afiliaciones.mc.com.pe:8443/",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}
